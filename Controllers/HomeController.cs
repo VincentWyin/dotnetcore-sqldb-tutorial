@@ -5,14 +5,96 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DotNetCoreSqlDb.Models;
+using DotNetCoreSqlDb.Models.ViewModel;
+using Newtonsoft.Json;
+using DotNetCoreSqlDb.Service;
 
 namespace DotNetCoreSqlDb.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly MyDatabaseContext _context;
+
+        public HomeController(MyDatabaseContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
+        }
+
+        public async Task<IActionResult> ImportNews()
+        {
+            string returnMessage = string.Empty;
+            string host = "https://www.rotoworld.com";
+            int offset = 10;
+            int loop = 100;
+            string json = string.Empty;
+            int insertedRecords = 0;
+            List<RotoNews> model = new List<RotoNews>();
+            List<RotoPlayer> players = new List<RotoPlayer>();
+
+            List<string> playerList = _context.RotoPlayerList.Select(x => x.PlayerKey).Distinct().ToList();
+            string firstNews = string.Empty;
+            if (_context.RotoNewsList.Count() > 0)
+            {
+                firstNews = _context.RotoNewsList.OrderByDescending(x => x.DateTime).Select(x => x.NewsKey).FirstOrDefault();
+            }
+
+            for (int i = 0; i < loop; i++)
+            {
+                json = RestSharpHelper.RestSharpGet(
+                    host,
+                    string.Format("/api/player_news?sort=-created&page[limit]={0}&page[offset]={1}&filter[league]=11&include=player,position,team,team.secondary_logo,player.image,related_players,related_teams", offset, offset * i));
+                Response result = JsonConvert.DeserializeObject<Response>(json);
+                foreach (RotoNewsData data in result.data)
+                {
+                    // Check player id, if not found, then create new row
+                    if (firstNews == data.id)
+                    {
+                        model = _context.RotoNewsList.OrderByDescending(x => x.DateTime).ToList();
+                        players = _context.RotoPlayerList.ToList();
+                        ViewBag.Players = players;
+                        return View(model);
+                    }
+
+                    // Insert news
+                    RotoNews item = new RotoNews();
+                    item.JsonString = JsonConvert.SerializeObject(data);
+                    item.Detail = data.attributes.analysis.value;
+                    item.NewsKey = data.id;
+                    item.Title = data.attributes.headline;
+                    DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    dtDateTime = dtDateTime.AddSeconds(long.Parse(data.attributes.created)).ToLocalTime();
+                    item.DateTime = dtDateTime;
+                    item.Player = data.relationships.player.data.id;
+
+                    if (!playerList.Contains(item.Player))
+                    {
+                        playerList.Add(item.Player);
+
+                        RotoPlayer player = new RotoPlayer();
+                        string json2 = RestSharpHelper.RestSharpGet(host, data.relationships.player.links.related.Replace(host, string.Empty));
+                        RotoPlayerResponse result2 = JsonConvert.DeserializeObject<RotoPlayerResponse>(json2);
+                        player.JsonString = JsonConvert.SerializeObject(result2.data);
+                        player.Name = result2.data.attributes.name;
+                        player.PlayerKey = result2.data.attributes.uuid;
+
+                        _context.RotoPlayerList.Add(player);
+                    }
+
+                    _context.RotoNewsList.Add(item);
+                    await _context.SaveChangesAsync();
+                    insertedRecords++;
+                }
+            }
+
+            model = _context.RotoNewsList.OrderByDescending(x => x.DateTime).ToList();
+            players = _context.RotoPlayerList.ToList();
+            ViewBag.Players = players;
+            return View(model);
         }
 
         public IActionResult Privacy()

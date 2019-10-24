@@ -1,0 +1,110 @@
+﻿@model List<RotoNews>
+
+@{
+    ViewData["Title"] = "News";
+    List<RotoPlayer> players = ViewBag.Players;
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+<style>
+    .w100 {
+        width: 100px !important;
+    }
+
+    .w125 {
+        width: 125px !important;
+    }
+
+    .w150 {
+        width: 150px !important;
+    }
+
+    .w175 {
+        width: 175px !important;
+    }
+
+    .w200 {
+        width: 200px !important;
+    }
+
+    .w225 {
+        width: 225px !important;
+    }
+
+    .w250 {
+        width: 250px !important;
+    }
+
+    .mt20 {
+        margin-top: 20px;
+    }
+
+    .fs14 {
+        font-size:14px;
+    }
+</style>
+
+<div class="mt20">
+    <table id="tb-roto-news" class="table table-hover fs14">
+        <thead>
+            <tr>
+                <th>时间</th>
+                <th>球员</th>
+                <th>标题</th>
+                <th>内容</th>
+                @*<th>受伤</th>
+                    <th>交易</th>
+                    <th>配角</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (RotoNews item in Model)
+            {
+                <tr>
+                    <td class="w100">@item.DateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td class="w100">@players.FirstOrDefault(x => x.PlayerKey == item.Player).Name</td>
+                    <td class="w200">@item.Title</td>
+                    <td class="">@Html.Raw(@item.Detail)</td>
+                    @*<td class="w50 text-center">
+                            @if (item.NewsAttribute.injury == "true")
+                            {
+                                <i class="far fa-check text-success fs20"></i>
+                            }
+                        </td>
+                        <td class="w50 text-center">
+                            @if (item.NewsAttribute.transaction == "true")
+                            {
+                                <i class="far fa-check text-success fs20"></i>
+                            }
+                        </td>
+                        <td class="w50 text-center">
+                            @if (item.NewsAttribute.developmental == "true")
+                            {
+                                <i class="far fa-check text-success fs20"></i>
+                            }
+                        </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(document).ready(function () {
+                $('#tb-roto-news').DataTable({
+                    "aaSorting": [[0, 'desc']],
+                    "sDom": '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>'});
+            });
+        });
+
+    </script>
+}
