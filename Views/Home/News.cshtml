@@ -36,6 +36,10 @@
         width: 250px !important;
     }
 
+    .w600 {
+        width: 600px !important;
+    }
+
     .mt20 {
         margin-top: 20px;
     }
@@ -47,7 +51,7 @@
 
 <h1>@ViewBag.Error</h1>
 
-<div class="mt20">
+<div class="mt20" style="min-width:1000px;">
     <table id="tb-roto-news" class="table table-hover fs14">
         <thead>
             <tr>
@@ -67,7 +71,7 @@
                     <td class="w100">@item.DateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
                     <td class="w100">@players.FirstOrDefault(x => x.PlayerKey == item.Player).Name</td>
                     <td class="w200">@item.Title</td>
-                    <td class="">@Html.Raw(@item.Detail)</td>
+                    <td class="w600">@Html.Raw(@item.Detail)</td>
                     @*<td class="w50 text-center">
                             @if (item.NewsAttribute.injury == "true")
                             {
@@ -104,6 +108,7 @@
             $(document).ready(function () {
                 $('#tb-roto-news').DataTable({
                     "aaSorting": [[0, 'desc']],
+                    "scrollX": true,
                     "sDom": '<"dt-panelmenu clearfix"flr>t<"dt-panelfooter clearfix"ip>'});
             });
         });
