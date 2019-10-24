@@ -11,8 +11,6 @@ namespace DotNetCoreSqlDb.Models
     public class RotoPlayer
     {
         [Key]
-        public int Id { get; set; }
-
         public string PlayerKey { get; set; }
 
         public string Name { get; set; }

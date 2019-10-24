@@ -30,7 +30,7 @@ namespace DotNetCoreSqlDb.Controllers
             string returnMessage = string.Empty;
             string host = "https://www.rotoworld.com";
             int offset = 10;
-            int loop = 5;
+            int loop = 100;
             string json = string.Empty;
             int insertedRecords = 0;
             List<RotoNews> model = new List<RotoNews>();
@@ -94,15 +94,14 @@ namespace DotNetCoreSqlDb.Controllers
                         insertedRecords++;
                     }
                 }
-
-
+                
                 _context.RotoPlayerList.AddRange(playersToBeAdd);
                 _context.RotoNewsList.AddRange(newsListToBeAdd);
                 _context.SaveChanges();
             }
             catch (Exception ex)
             {
-                error = ex.Message + " | " + ex.StackTrace;
+                error = ex.Message + " | " + ex.InnerException.Message;
             }
 
             model = _context.RotoNewsList.OrderByDescending(x => x.DateTime).ToList();

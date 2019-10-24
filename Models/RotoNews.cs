@@ -12,8 +12,6 @@ namespace DotNetCoreSqlDb.Models
     public class RotoNews
     {
         [Key]
-        public int Id { get; set; }
-
         public string NewsKey { get; set; }
 
         public string Title { get; set; }
