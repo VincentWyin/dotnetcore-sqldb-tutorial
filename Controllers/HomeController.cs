@@ -30,7 +30,7 @@ namespace DotNetCoreSqlDb.Controllers
             string returnMessage = string.Empty;
             string host = "https://www.rotoworld.com";
             int offset = 10;
-            int loop = 20;
+            int loop = 5;
             string json = string.Empty;
             int insertedRecords = 0;
             List<RotoNews> model = new List<RotoNews>();
