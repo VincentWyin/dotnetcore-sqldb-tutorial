@@ -34,18 +34,19 @@ namespace DotNetCoreSqlDb
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            
+
             // Use SQL Database if in Azure, otherwise, use SQLite
-            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-            {
-                services.AddDbContext<MyDatabaseContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
-            }
-            else
-            {
-                services.AddDbContext<MyDatabaseContext>(options =>
-                    options.UseSqlite("Data Source=localdatabase.db"));
-            }
+            //if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+            //{
+            //}
+            //else
+            //{
+            //    services.AddDbContext<MyDatabaseContext>(options =>
+            //        options.UseSqlite("Data Source=localdatabase.db"));
+            //}
+
+            services.AddDbContext<MyDatabaseContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 
             // Automatically perform database migration
             services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
