@@ -13,6 +13,10 @@ namespace DotNetCoreSqlDb.Models
         {
         }
 
-        public DbSet<DotNetCoreSqlDb.Models.Todo> Todo { get; set; }
+        public DbSet<Todo> Todo { get; set; }
+
+        public DbSet<RotoNews> RotoNewsList { get; set; }
+
+        public DbSet<RotoPlayer> RotoPlayerList { get; set; }
     }
 }
