@@ -25,12 +25,12 @@ namespace DotNetCoreSqlDb.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ImportNews()
+        public IActionResult News()
         {
             string returnMessage = string.Empty;
             string host = "https://www.rotoworld.com";
             int offset = 10;
-            int loop = 100;
+            int loop = 20;
             string json = string.Empty;
             int insertedRecords = 0;
             List<RotoNews> model = new List<RotoNews>();
