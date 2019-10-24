@@ -35,6 +35,10 @@ namespace DotNetCoreSqlDb.Controllers
             int insertedRecords = 0;
             List<RotoNews> model = new List<RotoNews>();
             List<RotoPlayer> players = new List<RotoPlayer>();
+            
+            List<RotoNews> newsListToBeAdd = new List<RotoNews>();
+            List<RotoPlayer> playersToBeAdd = new List<RotoPlayer>();
+
             string error = "";
             try
             {
@@ -57,11 +61,8 @@ namespace DotNetCoreSqlDb.Controllers
                         // Check player id, if not found, then create new row
                         if (firstNews == data.id)
                         {
-                            model = _context.RotoNewsList.OrderByDescending(x => x.DateTime).ToList();
-                            players = _context.RotoPlayerList.ToList();
-                            ViewBag.Players = players;
-                            ViewBag.Error = error;
-                            return View(model);
+                            i = loop;
+                            break;
                         }
 
                         // Insert news
@@ -86,14 +87,18 @@ namespace DotNetCoreSqlDb.Controllers
                             player.Name = result2.data.attributes.name;
                             player.PlayerKey = result2.data.attributes.uuid;
 
-                            _context.RotoPlayerList.Add(player);
+                            playersToBeAdd.Add(player);
                         }
 
-                        _context.RotoNewsList.Add(item);
-                        _context.SaveChanges();
+                        newsListToBeAdd.Add(item);
                         insertedRecords++;
                     }
                 }
+
+
+                _context.RotoPlayerList.AddRange(playersToBeAdd);
+                _context.RotoNewsList.AddRange(newsListToBeAdd);
+                _context.SaveChanges();
             }
             catch (Exception ex)
             {
