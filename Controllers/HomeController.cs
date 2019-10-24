@@ -90,7 +90,7 @@ namespace DotNetCoreSqlDb.Controllers
                         }
 
                         _context.RotoNewsList.Add(item);
-                        await _context.SaveChangesAsync();
+                        _context.SaveChanges();
                         insertedRecords++;
                     }
                 }
