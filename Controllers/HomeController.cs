@@ -27,6 +27,14 @@ namespace DotNetCoreSqlDb.Controllers
 
         public IActionResult News()
         {
+            List<RotoNews> model = _context.RotoNewsList.OrderByDescending(x => x.DateTime).ToList();
+            ViewBag.Players = _context.RotoPlayerList.ToList();
+            return View(model);
+        }
+
+        [HttpPost]
+        public string RefreshNews()
+        {
             string returnMessage = string.Empty;
             string host = "https://www.rotoworld.com";
             int offset = 10;
@@ -35,11 +43,11 @@ namespace DotNetCoreSqlDb.Controllers
             int insertedRecords = 0;
             List<RotoNews> model = new List<RotoNews>();
             List<RotoPlayer> players = new List<RotoPlayer>();
-            
+
             List<RotoNews> newsListToBeAdd = new List<RotoNews>();
             List<RotoPlayer> playersToBeAdd = new List<RotoPlayer>();
 
-            string error = "";
+            string error = "success";
             try
             {
 
@@ -94,7 +102,7 @@ namespace DotNetCoreSqlDb.Controllers
                         insertedRecords++;
                     }
                 }
-                
+
                 _context.RotoPlayerList.AddRange(playersToBeAdd);
                 _context.RotoNewsList.AddRange(newsListToBeAdd);
                 _context.SaveChanges();
@@ -104,11 +112,7 @@ namespace DotNetCoreSqlDb.Controllers
                 error = ex.Message + " | " + ex.InnerException.Message;
             }
 
-            model = _context.RotoNewsList.OrderByDescending(x => x.DateTime).ToList();
-            players = _context.RotoPlayerList.ToList();
-            ViewBag.Players = players;
-            ViewBag.Error = error;
-            return View(model);
+            return error;
         }
 
         public IActionResult Privacy()
