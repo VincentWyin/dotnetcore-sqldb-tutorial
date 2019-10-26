@@ -29,6 +29,20 @@ namespace DotNetCoreSqlDb.Controllers
         {
             List<RotoNews> model = _context.RotoNewsList.OrderByDescending(x => x.DateTime).ToList();
             ViewBag.Players = _context.RotoPlayerList.ToList();
+            foreach (RotoNews news in model)
+            {
+                news.NewsAttribute = JsonConvert.DeserializeObject<RotoNewsData>(news.JsonString).attributes;
+            }
+            return View(model);
+        }
+
+        public IActionResult Players()
+        {
+            List<RotoPlayer> model = _context.RotoPlayerList.ToList();
+            foreach (RotoPlayer news in model)
+            {
+                news.Attribute = JsonConvert.DeserializeObject<RotoPlayerData>(news.JsonString).attributes;
+            }
             return View(model);
         }
 

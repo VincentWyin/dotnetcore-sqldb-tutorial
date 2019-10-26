@@ -1,0 +1,48 @@
+﻿@model List<RotoPlayer>
+
+@{
+    ViewData["Title"] = "Player";
+}
+
+<div class="panel">
+    <div class="panel-body pn">
+        <table id="tb-roto-player" class="table table-hover fs14">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Birth</th>
+                    <th>Contract</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (RotoPlayer item in Model)
+                {
+                <tr>
+                    <td class="">@item.Name</td>
+                    <td class="">@item.Attribute.birth_date</td>
+                    <td class="">@item.Attribute.contract</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            SetMenuByCode("Player");
+
+            $(document).ready(function () {
+                $('#tb-roto-player').DataTable({
+                    "aaSorting": [[0, 'desc']],
+                    "scrollX": true,
+                    "sDom": '<"dt-panelmenu clearfix"frl>t<"dt-panelfooter clearfix"ip>'});
+            });
+        });
+
+    </script>
+}

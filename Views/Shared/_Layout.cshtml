@@ -15,16 +15,21 @@
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.semanticui.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body class="dashboard-page sb-l-o sb-r-c">
     <div id="main">
         <header class="navbar navbar-fixed-top bg-primary">
+            <h2 class="mtn mbn">
+                Fantasy App
+            </h2>
             <div class="navbar-branding dark bg-primary hidden">
-                <a class="navbar-brand" href="/Home/Index">
-                    
-                </a>
-                <span id="toggle_sidemenu_l" style="height: 60px; line-height: 58px;"><i class="fs18 fa fa-align-justify"></i></span>
+                <a class="navbar-brand" href="/Home/Index">Fantasy App</a>
+                <span id="toggle_sidemenu_l" class=""><i class="fs18 fa fa-align-justify"></i></span>
             </div>
         </header>
 
@@ -37,17 +42,17 @@
                 <!-- End: Sidebar Header -->
                 <!-- Start: Sidebar Left Menu -->
                 <ul class="nav sidebar-menu">
-                    <li class="sidebar-label pt20">常用链接</li>
-                    <li class="hidden">
-                        <a href="@Url.Action("News", "Home")" data-code="Home">
-                            <span><i class="fa fa-home"></i></span>
-                            <span class="sidebar-title">首页</span>
+                    <li class="sidebar-label pt20">Links</li>
+                    <li class="">
+                        <a href="@Url.Action("News", "Home")" data-code="News">
+                            <span><i class="fa fa-home fs16"></i></span>
+                            <span class="sidebar-title">News</span>
                         </a>
                     </li>
-                    <li class="hidden">
-                        <a href="@Url.Action("Players", "Home")" data-code="IndustryAnalysis">
-                            <span><i class="fa fa-pie-chart"></i></span>
-                            <span class="sidebar-title">球員</span>
+                    <li class="">
+                        <a href="@Url.Action("Players", "Home")" data-code="Players">
+                            <span><i class="fa fa-user fs16"></i></span>
+                            <span class="sidebar-title">Player</span>
                         </a>
                     </li>
                 </ul>
@@ -64,6 +69,7 @@
             <!-- End: Sidebar Left Content -->
 
         </aside>
+
         <section id="content_wrapper">
             @RenderBody()
         </section>
@@ -87,6 +93,7 @@
                 integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
         </script>
     </environment>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)

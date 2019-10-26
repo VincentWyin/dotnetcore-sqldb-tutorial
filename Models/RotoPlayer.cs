@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DotNetCoreSqlDb.Models.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,5 +17,8 @@ namespace DotNetCoreSqlDb.Models
         public string Name { get; set; }
 
         public string JsonString { get; set; }
+
+        [NotMapped]
+        public PlayerAttribute Attribute { get; set; }
     }
 }

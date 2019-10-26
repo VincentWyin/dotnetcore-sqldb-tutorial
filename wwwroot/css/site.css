@@ -34132,3 +34132,728 @@ body.timeline-page .panel-clone {
         min-width: 0 !important;
     }
 }
+
+
+
+
+.admin-form .field.select option {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.mbn {
+    margin-bottom: 0px;
+}
+
+.has-error .field {
+    margin-bottom: 10px;
+}
+
+.has-error .select .arrow {
+    color: #ee7f6d;
+}
+
+.admin-form .has-error .select > select {
+    border: 1px solid #ee7f6d;
+    color: #ee7f6d;
+}
+
+.has-error .gui-input, .has-error .gui-textarea, .has-error .input-footer {
+    border: 1px solid #ee7f6d;
+    color: #ee7f6d;
+}
+
+.has-error ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ee7f6d;
+}
+
+.has-error :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ee7f6d;
+}
+
+.has-error ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ee7f6d;
+}
+
+.has-error .field i {
+    color: #ee7f6d;
+}
+
+.error-message {
+    display: none;
+}
+
+.has-error .error-message {
+    display: block;
+}
+
+table.dataTable thead th.sorting_disabled {
+    background-color: transparent;
+}
+
+.admin-form .gui-textarea-s {
+    height: 60px;
+}
+
+pre.simple {
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    color: #666;
+}
+
+.break-word {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    /* Non standard for webkit */
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+.pre-word-break {
+    white-space: pre-wrap; /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+body.OA {
+    font-family: Arial, "Microsoft YaHei";
+}
+
+#mainMenu {
+    height: 45px;
+    background-color: #0080d8
+}
+
+#mainMenu {
+    height: 45px;
+    background-color: #0080d8;
+}
+
+    #mainMenu li {
+        width: 120px;
+        text-align: center;
+    }
+
+        #mainMenu li a {
+            color: #fff;
+            font-size: 16px;
+            font-weight: normal;
+            background: url(../img/linebg_01.gif) no-repeat left center;
+        }
+
+            #mainMenu li a:hover {
+                color: #ddd;
+            }
+
+.oa-panel .right-corner-image {
+    height: 38px;
+}
+
+.oa-list-group a {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+footer#footerBar {
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+}
+
+#projectList th {
+    text-align: center;
+}
+
+    #projectList th p {
+        font-size: 24px;
+        margin: 0;
+    }
+
+#projectList td {
+    text-align: center;
+}
+
+.cel-remark li {
+    line-height: 23px;
+}
+
+.cel-icon-list .icon-bg {
+    right: 10px;
+    line-height: 80px;
+    font-size: 65px;
+}
+
+.cel-icon-list a:hover {
+    text-decoration: none;
+}
+
+.cel-icon-list .panel {
+    height: 75px;
+}
+
+.admin-form .form-sm label {
+    line-height: 40px;
+}
+
+.admin-form .form-sm .gui-input {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.admin-form .form-sm .section {
+    margin-bottom: 10px;
+}
+
+body {
+    font-family: "PingFang SC", "Noto Sans CJK", "Source Han Sans", "Microsoft Yahei", source-han-sans-simplified-c, sans-serif;
+}
+
+.table-buttons-right div.dt-buttons {
+    float: right;
+    padding-left: 20px;
+}
+
+.table-buttons-right .buttons-excel {
+    display: none;
+}
+
+/* Fix select modal */
+/*.select2-container {
+    width: 100% !important;
+    padding: 0;
+}*/
+
+
+table.cel-dashboard.tc-med-1 tbody td:first-child, table.cel-dashboard.tc-fs13-last tbody td:last-child {
+    font-size: 14px;
+}
+
+.cel-dl-list {
+    margin-bottom: 0px;
+}
+
+    .cel-dl-list p {
+        padding-left: 15px;
+        padding-top: 10px;
+    }
+
+#project-relationship {
+    height: 326px;
+    overflow-y: scroll;
+}
+
+.dropdown-menu > li > a.text-info {
+    color: #17a2b8 !important
+}
+
+.dropdown-menu > li > a.text-primary {
+    color: #4a89dc;
+}
+
+.dropdown-menu > li > a.text-warning {
+    color: #f7c65f;
+}
+
+.dropdown-menu > li > a.text-danger {
+    color: #e9573f;
+}
+
+.dropdown-menu > li > a.text-mute {
+    color: #fff0d2;
+}
+
+.dropdown-menu > li > a.disabled {
+    background-color: #f0f0f0;
+    border-color: #dddddd;
+    pointer-events: none;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/*
+    https://medium.com/wdstack/bootstrap-equal-height-columns-d07bc934eb27
+*/
+
+.row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .row.display-flex > [class*='col-'] {
+        display: flex;
+        flex-direction: column;
+    }
+
+#skin-toolbox {
+    top: 300px;
+}
+
+    #skin-toolbox .panel-heading {
+        right: 40px;
+        padding-left: 3px;
+    }
+
+#table-project-list_filter {
+    float: left;
+}
+
+#table-project-list_length {
+    float: right;
+}
+
+.admin-form .bg-dashboard, .bg-dashboard {
+    background-color: brown;
+    color: white;
+}
+
+.cel-ui .select2-container--default .select2-selection--multiple {
+    border-radius: 0px;
+    border: 1px solid #ddd;
+}
+
+.select2-dropdown {
+    border: 1px solid #ddd;
+}
+
+.table-selected-row > tbody > tr.row-primary > td:nth-child(2) {
+    border-left: solid 5px #4a89dc;
+}
+
+.table-selected-row > tbody > tr > td:nth-child(2) {
+    border-left: solid 5px #f5f5f5;
+}
+
+.OA .nav .open > a, .OA .nav .open > a:hover {
+    border-color: transparent;
+}
+
+.OA #mainMenu li .dropdown-menu {
+    min-width: 120px;
+}
+
+    .OA #mainMenu li .dropdown-menu li {
+        text-align: left;
+    }
+
+        .OA #mainMenu li .dropdown-menu li:hover {
+            background-color: cadetblue;
+        }
+
+        .OA #mainMenu li .dropdown-menu li a {
+            font-size: 12px;
+            color: #666;
+            background-image: none;
+        }
+
+            .OA #mainMenu li .dropdown-menu li a.current {
+                border-left: 4px solid #4a89dc;
+            }
+
+            .OA #mainMenu li .dropdown-menu li a:hover {
+                color: aliceblue;
+            }
+
+.OA .scroller-md {
+    height: 360px;
+    max-height: 360px;
+}
+
+.scroller-xlg {
+    height: 473px;
+    max-height: 473px;
+}
+
+.scroller-xxlg {
+    height: 550px;
+    max-height: 550px;
+}
+
+.scroller-xxxlg {
+    height: 750px;
+    max-height: 750px;
+}
+
+.scroller-xxlg .scroller-content {
+    padding: 20px;
+}
+
+.OA .orgchart {
+    padding: 0px;
+    background-image: none;
+}
+
+    .OA .orgchart td.left, .orgchart td.right, .orgchart td.top {
+        border-color: #aaa;
+    }
+
+    .OA .orgchart td > .down {
+        background-color: #aaa;
+    }
+
+    .OA .orgchart .sub-fund .title {
+        background-color: #006699;
+    }
+
+    .OA .orgchart .sub-fund .content {
+        border-color: #006699;
+    }
+
+    .OA .orgchart .project .title {
+        background-color: #009933;
+    }
+
+    .OA .orgchart .project .content {
+        border-color: #009933;
+    }
+
+    .OA .orgchart .shareholder .title {
+        background-color: #993366;
+    }
+
+    .OA .orgchart .shareholder .content {
+        border-color: #993366;
+    }
+
+    .OA .orgchart .sub-project .title {
+        background-color: #996633;
+    }
+
+    .OA .orgchart .sub-project .content {
+        border-color: #996633;
+    }
+
+    .OA .orgchart .others .title {
+        background-color: #cc0066;
+    }
+
+    .OA .orgchart .others .content {
+        border-color: #cc0066;
+    }
+
+.cel-nav .dropdown-menu {
+    min-width: 100px;
+}
+
+.cel-tab-nav.nav-pills > li.active > a, .cel-tab-nav.nav-pills > li.active > a:hover, .cel-tab-nav.nav-pills > li.active > a:focus {
+    background-color: transparent;
+    color: #4a89dc;
+    border-bottom: 2px solid #4a89dc;
+}
+
+.cel-tab-nav.nav-pills > li > a:hover {
+    background-color: transparent;
+    color: #4a89dc;
+}
+
+.cel-table tr {
+    border-left: 3px solid #f9f9f9;
+}
+
+    .cel-table tr.row-opened {
+        border-left: 3px solid #4a89dc;
+    }
+
+    .cel-table tr.investment-fof:hover {
+        cursor: pointer;
+    }
+
+    .cel-table tr.sub-investment {
+        border-left: 3px solid #fff;
+    }
+
+table.dataTable tr.sub-investment td {
+    background-color: #fff;
+}
+
+#content table.cel-table {
+    margin-bottom: 0px !important;
+}
+
+.non-btn-group-backgroup .btn-group.open .dropdown-toggle {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.white-popup {
+    position: relative;
+    background: #FFF;
+    padding: 20px;
+    width: auto;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.node-container {
+    width: 200px;
+    height: 70px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+    .node-container .node-container-title {
+        background: white;
+        padding-left: 10px;
+        line-height: 19px;
+        height: 45px;
+    }
+
+    .node-container.node-container-FUND .node-container-title {
+        font-size: 16px;
+    }
+
+    .node-container .node-container-title p {
+        font-size: 11px;
+        font-weight: 200;
+    }
+
+    .node-container.node-container-GP .node-container-title p, .node-container.node-container-IM .node-container-title p, .node-container.node-container-IA .node-container-title p, .node-container.node-container-FUND .node-container-title p {
+        display: none;
+    }
+
+    .node-container.node-container-LP .node-container-title div {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .node-container.node-container-FUND {
+        border-color: #ec6f5a !important;
+        color: #ec6f5a !important;
+    }
+
+        .node-container.node-container-FUND .node-container-list {
+            background: #ec6f5a !important
+        }
+
+    .node-container.node-container-LP {
+        border-color: #55badf !important;
+    }
+
+        .node-container.node-container-LP .node-container-list {
+            background: #55badf !important
+        }
+
+    .node-container.node-container-GP {
+        border-color: #649ae1 !important;
+    }
+
+        .node-container.node-container-GP .node-container-list {
+            background: #649ae1 !important;
+        }
+
+    .node-container.node-container-IM {
+        border-color: #f7c65f !important;
+    }
+
+        .node-container.node-container-IM .node-container-list {
+            background: #f7c65f !important;
+        }
+
+    .node-container.node-container-IA {
+        border-color: #85d27a !important;
+    }
+
+        .node-container.node-container-IA .node-container-list {
+            background: #85d27a !important;
+        }
+
+        .node-container.node-container-IA .node-container-title, .node-container.node-container-IM .node-container-title, .node-container.node-container-GP .node-container-title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 45px;
+            font-size: 12px;
+        }
+
+    .node-container .node-container-list {
+        text-align: center;
+        color: white;
+        padding-left: 10px;
+        height: 25px;
+        line-height: 25px;
+    }
+
+.popup-xlg {
+    max-width: 850px;
+}
+
+.popup-xxlg {
+    max-width: 1050px;
+}
+
+.popup-xxxlg {
+    max-width: 1180px;
+}
+
+.autocomplete-suggestions {
+    border: 1px solid #999;
+    background: #FFF;
+    overflow: auto;
+}
+
+.autocomplete-suggestion {
+    padding: 8px 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.autocomplete-selected {
+    background: #F0F0F0;
+}
+
+.autocomplete-suggestions strong {
+    font-weight: normal;
+    color: #3399FF;
+}
+
+.autocomplete-group {
+    padding: 2px 5px;
+}
+
+    .autocomplete-group strong {
+        display: block;
+        border-bottom: 1px solid #000;
+    }
+
+.form-horizontal .error-message.control-label {
+    text-align: left;
+}
+
+.pt3 {
+    padding-top: 3px;
+}
+
+.pt8 {
+    padding-top: 8px;
+}
+
+.i-success {
+    color: #009933;
+}
+
+.i-warning {
+    color: #d8c000;
+}
+
+.mfp-container .scroller,
+.mfp-container .scroller * {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+}
+
+[data-letters]:before {
+    content: attr(data-letters);
+    display: inline-block;
+    font-size: 1em;
+    width: 2.5em;
+    height: 2.5em;
+    line-height: 2.5em;
+    text-align: center;
+    border-radius: 50%;
+    background: #0080d8;
+    vertical-align: middle;
+    margin-right: 1em;
+    color: white;
+}
+
+/*
+    New Home Page
+*/
+.sidebar-menu > li > ul.sub-fund-list > li > a {
+    padding: 7px 5px 7px 25px;
+}
+
+.sidebar-menu > li > ul > li > a > span:nth-child(1) {
+    margin-right: 6px;
+}
+
+body.sb-l-m .sidebar-menu li > ul > li > a {
+    padding: 8px 0px 8px 15px;
+}
+
+body.sb-l-m .sidebar-menu > li > a > .sidebar-title {
+    width: 215px;
+}
+
+body.sb-l-m .sidebar-menu > li > ul {
+    width: 215px;
+}
+
+#content {
+    padding: 15px;
+}
+
+#global-search {
+    padding: 0 8px;
+    border-radius: 5px;
+}
+
+#topbar {
+    min-height: 43px;
+}
+
+/** nanoscroller initial setup **/
+.nano {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+    .nano > .nano-content:focus {
+        outline: thin dotted;
+    }
+
+    .nano > .nano-pane {
+        background: rgba(0,0,0,.25);
+        position: absolute;
+        width: 10px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        visibility: hidden\9; /* Target only IE7 and IE8 with this hack */
+        opacity: .01;
+        -webkit-transition: .2s;
+        -moz-transition: .2s;
+        -o-transition: .2s;
+        transition: .2s;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+        .nano > .nano-pane > .nano-slider {
+            background: #444;
+            background: rgba(0,0,0,.5);
+            position: relative;
+            margin: 0 1px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+        }
+
+    .nano:hover > .nano-pane, .nano-pane.active, .nano-pane.flashed {
+        visibility: visible\9; /* Target only IE7 and IE8 with this hack */
+        opacity: 0.99;
+    }
+
+
+.nav {
+    display:block;
+}

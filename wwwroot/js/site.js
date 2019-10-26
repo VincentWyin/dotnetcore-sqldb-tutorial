@@ -647,6 +647,11 @@ function SetMenuByCode(code) {
     $("#sidebar_left .sidebar-menu li a[data-code='" + code + "']").parent("li").addClass("active");
 }
 
+function SetMenuByCode(code) {
+    $("#sidebar_left .sidebar-menu li.active").removeClass("active");
+    $("#sidebar_left .sidebar-menu li a[data-code='" + code + "']").parent("li").addClass("active");
+}
+
 function SetMenu(parentId, id) {
     $("#sidebar_left .sidebar-menu li.active").removeClass("active");
     $("#sidebar_left .sidebar-menu li a[data-code='FOF_" + parentId + "']").click().parent("li").addClass("active");
