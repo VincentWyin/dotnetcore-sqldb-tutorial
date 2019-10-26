@@ -18,11 +18,76 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div id="main">
+        <header class="navbar navbar-fixed-top bg-primary">
+            <div class="navbar-branding dark bg-primary hidden">
+                <a class="navbar-brand" href="/Home/Index">
+                    
+                </a>
+                <span id="toggle_sidemenu_l" style="height: 60px; line-height: 58px;"><i class="fs18 fa fa-align-justify"></i></span>
+            </div>
+        </header>
+
+        <!-- Start: Sidebar Left -->
+        <aside id="sidebar_left" class="nano nano-primary affix">
+
+            <!-- Start: Sidebar Left Content -->
+            <div class="sidebar-left-content nano-content">
+
+                <!-- End: Sidebar Header -->
+                <!-- Start: Sidebar Left Menu -->
+                <ul class="nav sidebar-menu">
+                    <li class="sidebar-label pt20">常用链接</li>
+                    <li class="hidden">
+                        <a href="@Url.Action("News", "Home")" data-code="Home">
+                            <span><i class="fa fa-home"></i></span>
+                            <span class="sidebar-title">首页</span>
+                        </a>
+                    </li>
+                    <li class="hidden">
+                        <a href="@Url.Action("Players", "Home")" data-code="IndustryAnalysis">
+                            <span><i class="fa fa-pie-chart"></i></span>
+                            <span class="sidebar-title">球員</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- End: Sidebar Menu -->
+                <!-- Start: Sidebar Collapse Button -->
+                <div class="sidebar-toggle-mini">
+                    <a href="#">
+                        <span class="fa fa-arrow-alt-to-left"></span>
+                    </a>
+                </div>
+                <!-- End: Sidebar Collapse Button -->
+
+            </div>
+            <!-- End: Sidebar Left Content -->
+
+        </aside>
+        <section id="content_wrapper">
             @RenderBody()
-        </main>
+        </section>
     </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

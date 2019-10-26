@@ -19,10 +19,10 @@ namespace DotNetCoreSqlDb.Controllers
         {
             _context = context;
         }
-
+        
         public IActionResult Index()
         {
-            return View();
+            return RedirectToActionPermanent("News");
         }
 
         public IActionResult News()
@@ -50,7 +50,7 @@ namespace DotNetCoreSqlDb.Controllers
             string error = "success";
             try
             {
-
+                List<string> newsList = _context.RotoNewsList.Select(x => x.NewsKey).Distinct().ToList();
                 List<string> playerList = _context.RotoPlayerList.Select(x => x.PlayerKey).Distinct().ToList();
                 string firstNews = string.Empty;
                 if (_context.RotoNewsList.Count() > 0)
@@ -67,7 +67,7 @@ namespace DotNetCoreSqlDb.Controllers
                     foreach (RotoNewsData data in result.data)
                     {
                         // Check player id, if not found, then create new row
-                        if (firstNews == data.id)
+                        if (firstNews == data.id || newsList.Contains(data.id))
                         {
                             i = loop;
                             break;
@@ -83,6 +83,7 @@ namespace DotNetCoreSqlDb.Controllers
                         dtDateTime = dtDateTime.AddSeconds(long.Parse(data.attributes.created)).ToLocalTime();
                         item.DateTime = dtDateTime;
                         item.Player = data.relationships.player.data.id;
+                        newsList.Add(item.NewsKey);
 
                         if (!playerList.Contains(item.Player))
                         {
@@ -114,12 +115,7 @@ namespace DotNetCoreSqlDb.Controllers
 
             return error;
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
